@@ -1,0 +1,48 @@
+dh:
+  keycloak:
+    realm: avaliacao
+    serverUrl: http://localhost:8080/
+    clientId: backend
+    clientSecret: 50U9giFs0drlweOJB0Jpgv8E5KykbhzT
+spring:
+  application:
+    name: ms-users
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak-registration:
+            provider: keycloak-provider
+            client-id: backend
+            authorization-grant-type: client_credentials
+            client-secret: 50U9giFs0drlweOJB0Jpgv8E5KykbhzT
+        provider:
+          keycloak-provider:
+            token-uri: http://localhost:8080/realms/avaliacao/protocol/openid-connect/token
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/avaliacao
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+management:
+  endpoints:
+    web:
+      exposure.include: beans, env, health, info, metrics, mappings
+  endpoint:
+    health:
+      show-details: always
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.http: DEBUG
+
+server:
+  port: 8083
