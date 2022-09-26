@@ -29,4 +29,4 @@ http://localhost:8080
 ```
  - Importe o arquivo [realm-export.json](realm-export.json) para importar o reino, clientes, grupos e roles. 
    Cadastre usuários e mapeie pelo menos um para o grupo ``PROVIDERS``
- - Depois abra a pasta do projeto na IDE ou rode-os usando os comandos do maven.
+ - Depois abra a pasta do projeto na IDE ou rode os microservices usando os comandos do maven.
